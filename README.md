@@ -5,5 +5,7 @@ Course Reference and Credits-: https://www.youtube.com/playlist?list=PLFyjjoCMAP
 
 # API used
 URL-: https://disease.sh/v3/covid-19/
+
 Get World State-: https://disease.sh/v3/covid-19/all
+
 Get Countries List-: https://disease.sh/v3/covid-19/countries
