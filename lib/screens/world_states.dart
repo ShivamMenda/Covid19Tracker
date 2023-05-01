@@ -56,78 +56,87 @@ class _WorldStatePageState extends State<WorldStatePage>
                           controller: _controller,
                         ));
                   } else {
-                    return Column(
-                      children: [
-                        PieChart(
-                          dataMap: {
-                            "Total": (snapshot.data!.cases!.toDouble()),
-                            "Recovered": double.parse(
-                                snapshot.data!.recovered.toString()),
-                            "Deaths":
-                                double.parse(snapshot.data!.deaths.toString()),
-                          },
-                          chartValuesOptions: ChartValuesOptions(
-                              showChartValuesInPercentage: true),
-                          animationDuration: Duration(milliseconds: 1200),
-                          chartType: ChartType.ring,
-                          colorList: colorList,
-                          chartRadius: MediaQuery.of(context).size.width / 2.5,
-                          legendOptions: LegendOptions(
-                              legendPosition: LegendPosition.left),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(
-                              vertical:
-                                  MediaQuery.of(context).size.height * .06),
-                          child: Card(
-                            child: Column(
-                              children: [
-                                ReusableRow(
-                                    title: 'Total Cases',
-                                    value: snapshot.data!.cases.toString()),
-                                ReusableRow(
-                                    title: 'Deaths',
-                                    value: snapshot.data!.deaths.toString()),
-                                ReusableRow(
-                                    title: 'Recovered',
-                                    value: snapshot.data!.recovered.toString()),
-                                ReusableRow(
-                                    title: 'Active',
-                                    value: snapshot.data!.active.toString()),
-                                ReusableRow(
-                                    title: 'Critical',
-                                    value: snapshot.data!.critical.toString()),
-                                ReusableRow(
-                                    title: 'Today Deaths',
-                                    value:
-                                        snapshot.data!.todayDeaths.toString()),
-                                ReusableRow(
-                                    title: 'Today Recovered',
-                                    value: snapshot.data!.todayRecovered
-                                        .toString()),
-                              ],
+                    return SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          PieChart(
+                            dataMap: {
+                              "Total": (snapshot.data!.cases!.toDouble()),
+                              "Recovered": double.parse(
+                                  snapshot.data!.recovered.toString()),
+                              "Deaths": double.parse(
+                                  snapshot.data!.deaths.toString()),
+                            },
+                            chartValuesOptions: ChartValuesOptions(
+                                showChartValuesInPercentage: true),
+                            animationDuration: Duration(milliseconds: 1200),
+                            chartType: ChartType.ring,
+                            colorList: colorList,
+                            chartRadius:
+                                MediaQuery.of(context).size.width / 2.5,
+                            legendOptions: LegendOptions(
+                                legendPosition: LegendPosition.left),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.symmetric(
+                                vertical:
+                                    MediaQuery.of(context).size.height * .06),
+                            child: Card(
+                              child: SingleChildScrollView(
+                                child: Column(
+                                  children: [
+                                    ReusableRow(
+                                        title: 'Total Cases',
+                                        value: snapshot.data!.cases.toString()),
+                                    ReusableRow(
+                                        title: 'Deaths',
+                                        value:
+                                            snapshot.data!.deaths.toString()),
+                                    ReusableRow(
+                                        title: 'Recovered',
+                                        value: snapshot.data!.recovered
+                                            .toString()),
+                                    ReusableRow(
+                                        title: 'Active',
+                                        value:
+                                            snapshot.data!.active.toString()),
+                                    ReusableRow(
+                                        title: 'Critical',
+                                        value:
+                                            snapshot.data!.critical.toString()),
+                                    ReusableRow(
+                                        title: 'Today Deaths',
+                                        value: snapshot.data!.todayDeaths
+                                            .toString()),
+                                    ReusableRow(
+                                        title: 'Today Recovered',
+                                        value: snapshot.data!.todayRecovered
+                                            .toString()),
+                                  ],
+                                ),
+                              ),
                             ),
                           ),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        const CountriesListScreen()));
-                          },
-                          child: Container(
-                            height: 50,
-                            decoration: BoxDecoration(
-                                color: Color(0xff1aa260),
-                                borderRadius: BorderRadius.circular(10)),
-                            child: const Center(
-                              child: Text('Track Countries'),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const CountriesListScreen()));
+                            },
+                            child: Container(
+                              height: 50,
+                              decoration: BoxDecoration(
+                                  color: Color(0xff1aa260),
+                                  borderRadius: BorderRadius.circular(10)),
+                              child: const Center(
+                                child: Text('Track Countries'),
+                              ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     );
                   }
                 }),
