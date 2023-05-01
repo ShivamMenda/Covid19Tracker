@@ -12,12 +12,6 @@ Get Countries List-: https://disease.sh/v3/covid-19/countries
 
 # Final App
 <span>
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
 <img src="https://user-images.githubusercontent.com/74780977/235440549-204f9d9e-70c9-4483-be1a-0ce63437199c.png" height="450">
 &nbsp;
 &nbsp;
